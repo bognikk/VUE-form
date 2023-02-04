@@ -99,7 +99,7 @@
 			</div>
 		</div>
 		<div class="form-control">
-			<rating-control></rating-control>
+			<rating-control v-model="rating"></rating-control>
 		</div>
 		<div class="form-control">
 			<input
@@ -117,7 +117,7 @@
 </template>
 
 <script>
-import RatingControl from './RatingControl.vue'
+import RatingControl from './RatingControl.vue';
 
 export default {
 	components: {
@@ -131,6 +131,7 @@ export default {
 			interest: [],
 			how: null,
 			confirm: false,
+			rating: null,
 			userNameValidity: 'pending',
 		};
 	},
@@ -145,15 +146,14 @@ export default {
 			this.userAge = null;
 			console.log('Referrer: ' + this.referrer);
 			this.referrer = 'wom';
-			console.log('Checkboxes');
-			console.log(this.interest);
-			console.log('Radio buttons');
-			console.log(this.how);
+			console.log('Checkboxes: ' + this.interest);
+			console.log('Radio buttons: ' + this.how);
 			this.interest = [];
 			this.how = null;
-			console.log('Confirm?');
-			console.log(this.confirm);
+			console.log('Confirm? ' + this.confirm);
 			this.confirm = false;
+			console.log('Rating: ' + this.rating);
+			this.rating = null;
 		},
 		validateInput() {
 			if (this.userName === '') {
@@ -188,9 +188,9 @@ form {
 			}
 		}
 
-    p {
-      color: red;
-    }
+		p {
+			color: red;
+		}
 
 		label {
 			font-weight: bold;
